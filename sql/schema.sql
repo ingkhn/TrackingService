@@ -6,7 +6,6 @@ CREATE TABLE customer
 (
     customer_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     name        VARCHAR(45)       NOT NULL,
-    email       VARCHAR(45)       NOT NULL,
     PRIMARY KEY (customer_id)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
@@ -32,11 +31,11 @@ CREATE TABLE status
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8;
 
-INSERT INTO customer (customer_id, name, email)
-VALUES (1, 'Mustermann', 'mustermann@google.com'),
-       (2, 'Petrov', 'petrov@mail.ru'),
-       (3, 'Ivanova', 'ivanova@gmail.com'),
-       (4, 'Sokolov', 'sokolov@mail.ru');
+INSERT INTO customer (customer_id, name)
+VALUES (1, 'Mustermann'),
+       (2, 'Petrov'),
+       (3, 'Ivanova'),
+       (4, 'Sokolov');
 
 INSERT INTO shipment (shipment_id, title, customer_id)
 VALUES (1, 'Packet', 1),
