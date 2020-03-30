@@ -1,10 +1,10 @@
 package de.telran.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import de.telran.model.entity.StatusType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
 import java.util.Date;
@@ -18,6 +18,6 @@ public class StatusDTO {
 
     private StatusType type;
 
-    @DateTimeFormat(pattern = "yyyyMMdd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date date;
 }

@@ -2,6 +2,7 @@ package de.telran.controller;
 
 import de.telran.configuration.TestConfig;
 import de.telran.model.entity.Customer;
+import de.telran.service.CustomerService;
 import de.telran.service.impl.CustomerServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;

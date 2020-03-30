@@ -3,8 +3,10 @@ package de.telran.model.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -21,6 +23,6 @@ public class Customer {
     private String email;
 
     @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "customer")
+            mappedBy = "customerId")
     private List<Shipment> shipments;
 }

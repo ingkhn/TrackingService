@@ -1,12 +1,10 @@
 package de.telran.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,18 +13,17 @@ import java.util.Date;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long trackingId;
+    private Long statusId;
 
     @Enumerated(EnumType.STRING)
     private StatusType type;
 
-    @Temporal(TemporalType.DATE)
+    @CreationTimestamp
     private Date date;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "shipment_id", insertable = false, updatable = false)
-    private Shipment shipment;
+    private Long shipmentId;
 }

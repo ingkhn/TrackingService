@@ -1,9 +1,6 @@
 package de.telran.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,11 +18,9 @@ public class Shipment {
 
     private String title;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id", insertable = false, updatable = false)
-    private Customer customer;
+    private Long customerId;
 
     @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "shipment")
+            mappedBy = "shipmentId")
     private List<Status> statuses;
 }
